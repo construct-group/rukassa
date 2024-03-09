@@ -2,12 +2,13 @@
 
 public record RukassaPaymentWhoFee
 {
-    private RukassaPaymentWhoFee(string value) => this.Value = value;
+    private RukassaPaymentWhoFee(string value, int id) => this.Value = value;
 
     public string Value { get; private set; }
+    public int Id { get; private set; }
 
-    public static RukassaPaymentWhoFee Invoice { get => new("INVOICE"); }
-    public static RukassaPaymentWhoFee Balance { get => new("BALANCE"); }
+    public static RukassaPaymentWhoFee Invoice { get => new("INVOICE", 0); }
+    public static RukassaPaymentWhoFee Balance { get => new("BALANCE", 1); }
 
     public static RukassaPaymentWhoFee FromString(string s)
     {
